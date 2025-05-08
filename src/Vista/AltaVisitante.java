@@ -195,7 +195,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 100, 6);
         add(etiquetaSexo2, gridBagConstraints);
 
         comboSexo2.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
@@ -209,7 +209,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 100, 6);
         add(comboSexo2, gridBagConstraints);
 
         etiquetaMatricula.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N

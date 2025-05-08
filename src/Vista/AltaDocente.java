@@ -111,7 +111,7 @@ public class AltaDocente extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 100, 6);
         add(etiquetaSexo, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
@@ -132,13 +132,18 @@ public class AltaDocente extends javax.swing.JPanel {
         comboSexo.setMinimumSize(new java.awt.Dimension(250, 30));
         comboSexo.setName("licenciatura"); // NOI18N
         comboSexo.setPreferredSize(new java.awt.Dimension(250, 30));
+        comboSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSexoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 100, 6);
         add(comboSexo, gridBagConstraints);
 
         comboAño.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
@@ -251,6 +256,10 @@ public class AltaDocente extends javax.swing.JPanel {
     private void cajaNoPlazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaNoPlazaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cajaNoPlazaActionPerformed
+
+    private void comboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboSexoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
