@@ -75,9 +75,9 @@
                       <Component id="btnHogar" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="btnHogar1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnHogar3" max="32767" attributes="0"/>
-                  <Component id="btnHogar2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnHistorial" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnIngresoUsuario" max="32767" attributes="0"/>
+                  <Component id="btnReportes" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -93,11 +93,11 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="btnConsulta" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="btnHogar3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnIngresoUsuario" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="btnHogar1" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnHistorial" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="btnHogar2" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnReportes" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -270,7 +270,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JButton" name="btnHogar1">
+            <Component class="javax.swing.JButton" name="btnHistorial">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ae" green="7d" red="54" type="rgb"/>
@@ -306,7 +306,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnHogar2">
+            <Component class="javax.swing.JButton" name="btnReportes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ae" green="7d" red="54" type="rgb"/>
@@ -342,7 +342,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnHogar3">
+            <Component class="javax.swing.JButton" name="btnIngresoUsuario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ae" green="7d" red="54" type="rgb"/>

@@ -1,6 +1,7 @@
 package pruebasArduino;
 
 import Vista.ClasesEspeciales.SideMenuPanel;
+import Vista.ClasesEspeciales.SideMenuPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

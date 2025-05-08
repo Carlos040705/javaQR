@@ -53,6 +53,7 @@ public class AltaAlumno extends javax.swing.JPanel {
         cajaMatricula = new javax.swing.JTextField();
         guardarAlumno = new javax.swing.JButton();
         etiquetaValidacion = new javax.swing.JLabel();
+        etiquetaSexo1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(210, 231, 255));
         setMinimumSize(new java.awt.Dimension(0, 0));
@@ -119,18 +120,18 @@ public class AltaAlumno extends javax.swing.JPanel {
 
         etiquetaSexo.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaSexo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        etiquetaSexo.setText("Sexo:");
         etiquetaSexo.setMaximumSize(new java.awt.Dimension(150, 30));
         etiquetaSexo.setMinimumSize(new java.awt.Dimension(150, 30));
         etiquetaSexo.setName("alumno"); // NOI18N
         etiquetaSexo.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 50, 100, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 0, 6);
         add(etiquetaSexo, gridBagConstraints);
 
         comboSexo.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
@@ -144,7 +145,7 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 100, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
         add(comboSexo, gridBagConstraints);
 
         comboAño.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
@@ -342,6 +343,22 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
         add(etiquetaValidacion, gridBagConstraints);
+
+        etiquetaSexo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        etiquetaSexo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        etiquetaSexo1.setText("Sexo:");
+        etiquetaSexo1.setMaximumSize(new java.awt.Dimension(150, 30));
+        etiquetaSexo1.setMinimumSize(new java.awt.Dimension(150, 30));
+        etiquetaSexo1.setName("alumno"); // NOI18N
+        etiquetaSexo1.setPreferredSize(new java.awt.Dimension(150, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        add(etiquetaSexo1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cajaMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaMatriculaActionPerformed
@@ -364,6 +381,7 @@ public class AltaAlumno extends javax.swing.JPanel {
     public javax.swing.JLabel etiquetaLicenciatura2;
     public javax.swing.JLabel etiquetaMatricula;
     public javax.swing.JLabel etiquetaSexo;
+    public javax.swing.JLabel etiquetaSexo1;
     public javax.swing.JLabel etiquetaValidacion;
     public javax.swing.JButton guardarAlumno;
     private javax.swing.JLabel jLabel1;

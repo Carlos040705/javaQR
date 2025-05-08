@@ -53,9 +53,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnHogar = new javax.swing.JButton();
         btnConsulta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnHogar1 = new javax.swing.JButton();
-        btnHogar2 = new javax.swing.JButton();
-        btnHogar3 = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
+        btnIngresoUsuario = new javax.swing.JButton();
         panelDinamico = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,53 +150,53 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGap(0, 33, Short.MAX_VALUE)
         );
 
-        btnHogar1.setBackground(new java.awt.Color(84, 125, 174));
-        btnHogar1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        btnHogar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnHogar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/tab_search_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
-        btnHogar1.setText("HISTORIAL");
-        btnHogar1.setBorderPainted(false);
-        btnHogar1.setContentAreaFilled(false);
-        btnHogar1.setHideActionText(true);
-        btnHogar1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnHogar1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnHogar1.setIconTextGap(20);
-        btnHogar1.setMargin(new java.awt.Insets(2, 0, 2, 14));
-        btnHogar1.setMinimumSize(new java.awt.Dimension(0, 0));
-        btnHogar1.setPreferredSize(new java.awt.Dimension(50, 574));
-        btnHogar1.setRolloverEnabled(false);
+        btnHistorial.setBackground(new java.awt.Color(84, 125, 174));
+        btnHistorial.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/tab_search_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
+        btnHistorial.setText("HISTORIAL");
+        btnHistorial.setBorderPainted(false);
+        btnHistorial.setContentAreaFilled(false);
+        btnHistorial.setHideActionText(true);
+        btnHistorial.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnHistorial.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnHistorial.setIconTextGap(20);
+        btnHistorial.setMargin(new java.awt.Insets(2, 0, 2, 14));
+        btnHistorial.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnHistorial.setPreferredSize(new java.awt.Dimension(50, 574));
+        btnHistorial.setRolloverEnabled(false);
 
-        btnHogar2.setBackground(new java.awt.Color(84, 125, 174));
-        btnHogar2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        btnHogar2.setForeground(new java.awt.Color(255, 255, 255));
-        btnHogar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/table_chart_view_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
-        btnHogar2.setText("REPORTES");
-        btnHogar2.setBorderPainted(false);
-        btnHogar2.setContentAreaFilled(false);
-        btnHogar2.setHideActionText(true);
-        btnHogar2.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnHogar2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnHogar2.setIconTextGap(20);
-        btnHogar2.setMargin(new java.awt.Insets(2, 0, 2, 14));
-        btnHogar2.setMinimumSize(new java.awt.Dimension(0, 0));
-        btnHogar2.setPreferredSize(new java.awt.Dimension(50, 574));
-        btnHogar2.setRolloverEnabled(false);
+        btnReportes.setBackground(new java.awt.Color(84, 125, 174));
+        btnReportes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        btnReportes.setForeground(new java.awt.Color(255, 255, 255));
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/table_chart_view_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
+        btnReportes.setText("REPORTES");
+        btnReportes.setBorderPainted(false);
+        btnReportes.setContentAreaFilled(false);
+        btnReportes.setHideActionText(true);
+        btnReportes.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnReportes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnReportes.setIconTextGap(20);
+        btnReportes.setMargin(new java.awt.Insets(2, 0, 2, 14));
+        btnReportes.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnReportes.setPreferredSize(new java.awt.Dimension(50, 574));
+        btnReportes.setRolloverEnabled(false);
 
-        btnHogar3.setBackground(new java.awt.Color(84, 125, 174));
-        btnHogar3.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        btnHogar3.setForeground(new java.awt.Color(255, 255, 255));
-        btnHogar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/id_card_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
-        btnHogar3.setText("INGRESAR");
-        btnHogar3.setBorderPainted(false);
-        btnHogar3.setContentAreaFilled(false);
-        btnHogar3.setHideActionText(true);
-        btnHogar3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnHogar3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnHogar3.setIconTextGap(20);
-        btnHogar3.setMargin(new java.awt.Insets(2, 0, 2, 14));
-        btnHogar3.setMinimumSize(new java.awt.Dimension(0, 0));
-        btnHogar3.setPreferredSize(new java.awt.Dimension(50, 574));
-        btnHogar3.setRolloverEnabled(false);
+        btnIngresoUsuario.setBackground(new java.awt.Color(84, 125, 174));
+        btnIngresoUsuario.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        btnIngresoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnIngresoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/id_card_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
+        btnIngresoUsuario.setText("INGRESAR");
+        btnIngresoUsuario.setBorderPainted(false);
+        btnIngresoUsuario.setContentAreaFilled(false);
+        btnIngresoUsuario.setHideActionText(true);
+        btnIngresoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnIngresoUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnIngresoUsuario.setIconTextGap(20);
+        btnIngresoUsuario.setMargin(new java.awt.Insets(2, 0, 2, 14));
+        btnIngresoUsuario.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnIngresoUsuario.setPreferredSize(new java.awt.Dimension(50, 574));
+        btnIngresoUsuario.setRolloverEnabled(false);
 
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
@@ -209,9 +209,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidebarLayout.createSequentialGroup()
                 .addComponent(btnHogar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(btnHogar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnHogar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnHogar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnIngresoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnReportes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,11 +226,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnHogar3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnIngresoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnHogar1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnHogar2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -296,11 +296,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAlta;
     public javax.swing.JButton btnConsulta;
+    public javax.swing.JButton btnHistorial;
     public javax.swing.JButton btnHogar;
-    public javax.swing.JButton btnHogar1;
-    public javax.swing.JButton btnHogar2;
-    public javax.swing.JButton btnHogar3;
+    public javax.swing.JButton btnIngresoUsuario;
     public javax.swing.JButton btnMenu;
+    public javax.swing.JButton btnReportes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public keeptoo.KGradientPanel panelDinamico;
