@@ -4,9 +4,12 @@
  */
 package Vista;
 
+import Controlador.ControladorDiseñoBoton;
 import Controlador.ControladorPantallaPrincipal;
+import Controlador.ObtenerComponentes;
 import Vista.ClasesEspeciales.SideMenuPanel;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +24,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public SideMenuPanel sp;
     public CardLayout vistaDinamica;
     private ControladorPantallaPrincipal controlador;
+    ControladorDiseñoBoton d;
+    ObtenerComponentes c;
 
     public PantallaPrincipal() {
         initComponents();
@@ -34,6 +39,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         sp.setResponsiveMinWidth(600);
         vistaDinamica = (CardLayout) panelDinamico.getLayout();
         controlador = new ControladorPantallaPrincipal(this);
+        c = new ObtenerComponentes();
+        d = new ControladorDiseñoBoton(c.obtenerBotones(this.jPanel1));
     }
 
     /**
@@ -66,12 +73,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        sidebar.setkEndColor(new java.awt.Color(46, 78, 121));
-        sidebar.setkStartColor(new java.awt.Color(84, 125, 174));
+        sidebar.setkEndColor(new java.awt.Color(66, 98, 141));
+        sidebar.setkStartColor(new java.awt.Color(66, 98, 141));
         sidebar.setMinimumSize(new java.awt.Dimension(55, 0));
         sidebar.setPreferredSize(new java.awt.Dimension(55, 0));
 
-        btnMenu.setBackground(new java.awt.Color(84, 125, 174));
+        btnMenu.setBackground(new java.awt.Color(66, 98, 141));
         btnMenu.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/menu_25dp_FFFFFF_FILL0_wght400_GRAD-25_opsz24.png"))); // NOI18N
@@ -83,10 +90,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnMenu.setIconTextGap(20);
         btnMenu.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnMenu.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnMenu.setOpaque(true);
         btnMenu.setPreferredSize(new java.awt.Dimension(50, 574));
         btnMenu.setRolloverEnabled(false);
+        btnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMenuMouseEntered(evt);
+            }
+        });
 
-        btnAlta.setBackground(new java.awt.Color(84, 125, 174));
+        btnAlta.setBackground(new java.awt.Color(66, 98, 141));
         btnAlta.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnAlta.setForeground(new java.awt.Color(255, 255, 255));
         btnAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/person_add_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -99,10 +112,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnAlta.setIconTextGap(20);
         btnAlta.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnAlta.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnAlta.setOpaque(true);
         btnAlta.setPreferredSize(new java.awt.Dimension(50, 574));
         btnAlta.setRolloverEnabled(false);
 
-        btnHogar.setBackground(new java.awt.Color(84, 125, 174));
+        btnHogar.setBackground(new java.awt.Color(66, 98, 141));
         btnHogar.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnHogar.setForeground(new java.awt.Color(255, 255, 255));
         btnHogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/home_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -115,10 +129,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnHogar.setIconTextGap(20);
         btnHogar.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnHogar.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnHogar.setOpaque(true);
         btnHogar.setPreferredSize(new java.awt.Dimension(50, 574));
         btnHogar.setRolloverEnabled(false);
 
-        btnConsulta.setBackground(new java.awt.Color(84, 125, 174));
+        btnConsulta.setBackground(new java.awt.Color(66, 98, 141));
         btnConsulta.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnConsulta.setForeground(new java.awt.Color(255, 255, 255));
         btnConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/person_search_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -131,6 +146,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnConsulta.setIconTextGap(20);
         btnConsulta.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnConsulta.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnConsulta.setOpaque(true);
         btnConsulta.setPreferredSize(new java.awt.Dimension(50, 574));
         btnConsulta.setRolloverEnabled(false);
 
@@ -150,7 +166,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGap(0, 33, Short.MAX_VALUE)
         );
 
-        btnHistorial.setBackground(new java.awt.Color(84, 125, 174));
+        btnHistorial.setBackground(new java.awt.Color(66, 98, 141));
         btnHistorial.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/tab_search_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -163,10 +179,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnHistorial.setIconTextGap(20);
         btnHistorial.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnHistorial.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnHistorial.setOpaque(true);
         btnHistorial.setPreferredSize(new java.awt.Dimension(50, 574));
         btnHistorial.setRolloverEnabled(false);
 
-        btnReportes.setBackground(new java.awt.Color(84, 125, 174));
+        btnReportes.setBackground(new java.awt.Color(66, 98, 141));
         btnReportes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
         btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/table_chart_view_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -179,10 +196,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnReportes.setIconTextGap(20);
         btnReportes.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnReportes.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnReportes.setOpaque(true);
         btnReportes.setPreferredSize(new java.awt.Dimension(50, 574));
         btnReportes.setRolloverEnabled(false);
 
-        btnIngresoUsuario.setBackground(new java.awt.Color(84, 125, 174));
+        btnIngresoUsuario.setBackground(new java.awt.Color(66, 98, 141));
         btnIngresoUsuario.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         btnIngresoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Recursos/id_card_25dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.png"))); // NOI18N
@@ -195,6 +213,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnIngresoUsuario.setIconTextGap(20);
         btnIngresoUsuario.setMargin(new java.awt.Insets(2, 0, 2, 14));
         btnIngresoUsuario.setMinimumSize(new java.awt.Dimension(0, 0));
+        btnIngresoUsuario.setOpaque(true);
         btnIngresoUsuario.setPreferredSize(new java.awt.Dimension(50, 574));
         btnIngresoUsuario.setRolloverEnabled(false);
 
@@ -256,6 +275,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuMouseEntered
 
     /**
      * @param args the command line arguments

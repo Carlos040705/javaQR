@@ -10,16 +10,21 @@ import Vista.Reporte;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
 
 public class ControladorPantallaPrincipal implements ActionListener {
 
     PantallaPrincipal framePrincipal;
+    Verificador verificador;
     Hogar panelHogar;
     AltaComunidad panelAltaUsuario;
     ConsultaUsuario panelConsultaUsuario;
     IngresoUsuario panelIngresoUsuario;
     Historial panelHistorial;
     Reporte panelReporte;
+    DefaultTableModel modelo;
+    CRUDPersona crudPersona;
+    CRUDSesion crudSesiones;
 
     ControladorScanner controladorScanner;
 
@@ -46,16 +51,30 @@ public class ControladorPantallaPrincipal implements ActionListener {
             resetSideMenu();
 
         } else if (e.getSource().equals(framePrincipal.btnAlta)) {
+            verificador.limpiarDatos(panelAltaUsuario);
+            verificador.LimpiarComboBox(panelAltaUsuario);
             switchPanel("Alta");
             resetSideMenu();
         } else if (e.getSource().equals(framePrincipal.btnConsulta)) {
+            verificador.limpiarDatos(panelConsultaUsuario);
+            verificador.LimpiarComboBox(panelConsultaUsuario);
+            panelConsultaUsuario.setPantallaPrincipal(framePrincipal);
+            panelConsultaUsuario.llenarTabla(crudPersona.read(), modelo);
             switchPanel("Consulta");
+            controladorScanner.setActiveTextField(panelConsultaUsuario.cajaBuscarClave);
             resetSideMenu();
         } else if (e.getSource().equals(framePrincipal.btnIngresoUsuario)) {
+            verificador.limpiarDatos(panelIngresoUsuario);
+            verificador.LimpiarComboBox(panelIngresoUsuario);
             switchPanel("IngresoUsuario");
+            controladorScanner.setActiveTextField(panelIngresoUsuario.cajaMatricula);
             resetSideMenu();
         } else if (e.getSource().equals(framePrincipal.btnHistorial)) {
+             verificador.limpiarDatos(panelHistorial);
+            verificador.LimpiarComboBox(panelHistorial);
+            panelHistorial.llenarTabla(crudSesiones.read());
             switchPanel("Historial");
+            controladorScanner.setActiveTextField(panelHistorial.cajaBuscarClave);
             resetSideMenu();
         } else if (e.getSource().equals(framePrincipal.btnReportes)) {
             switchPanel("Reportes");
@@ -67,10 +86,14 @@ public class ControladorPantallaPrincipal implements ActionListener {
         controladorScanner = new ControladorScanner("COM3", 9600);
         panelHogar = new Hogar();
         panelAltaUsuario = new AltaComunidad(controladorScanner);
-        panelConsultaUsuario = new ConsultaUsuario(controladorScanner);
+        panelConsultaUsuario = new ConsultaUsuario();
         panelIngresoUsuario = new IngresoUsuario();
         panelHistorial = new Historial();
         panelReporte = new Reporte();
+        modelo = (DefaultTableModel) panelConsultaUsuario.tablaPersonas.getModel();
+        crudPersona = new CRUDPersona();
+        crudSesiones = new CRUDSesion();
+        verificador = new Verificador();
     }
 
     private void addAL() {

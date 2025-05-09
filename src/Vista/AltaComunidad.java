@@ -7,7 +7,6 @@ package Vista;
 import Controlador.ControladorAltaComunidad;
 import Controlador.ControladorScanner;
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
 
 /**
  *
@@ -41,15 +40,16 @@ public class AltaComunidad extends javax.swing.JPanel {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         comboTipo = new javax.swing.JComboBox<>();
         etiquetaIcono = new javax.swing.JLabel();
-        etiquetaUltimoRegistro = new javax.swing.JLabel();
+        etiquetaConfirmacion = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelDinamico = new javax.swing.JPanel();
+        panelDinamico = new keeptoo.KGradientPanel();
 
-        setBackground(new java.awt.Color(210, 231, 255));
+        setBackground(new java.awt.Color(84, 125, 174));
         setLayout(new java.awt.GridBagLayout());
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
+        kGradientPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel1.setkEndColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(210, 231, 255));
         kGradientPanel1.setMinimumSize(new java.awt.Dimension(0, 120));
         kGradientPanel1.setPreferredSize(new java.awt.Dimension(0, 120));
         kGradientPanel1.setLayout(new java.awt.GridBagLayout());
@@ -64,39 +64,38 @@ public class AltaComunidad extends javax.swing.JPanel {
         comboTipo.setPreferredSize(new java.awt.Dimension(200, 30));
         comboTipo.setRenderer(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(65, 10, 65, 40);
+        gridBagConstraints.insets = new java.awt.Insets(65, 0, 65, 10);
         kGradientPanel1.add(comboTipo, gridBagConstraints);
 
         etiquetaIcono.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 16)); // NOI18N
-        etiquetaIcono.setText("icono");
-        etiquetaIcono.setMinimumSize(new java.awt.Dimension(0, 0));
-        etiquetaIcono.setPreferredSize(new java.awt.Dimension(0, 0));
+        etiquetaIcono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaIcono.setPreferredSize(new java.awt.Dimension(200, 150));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        kGradientPanel1.add(etiquetaIcono, gridBagConstraints);
+
+        etiquetaConfirmacion.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        etiquetaConfirmacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaConfirmacion.setText("<html><leading>Antes de hacer un registro asegurese <p>de llenar todos los campos");
+        etiquetaConfirmacion.setPreferredSize(new java.awt.Dimension(200, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        kGradientPanel1.add(etiquetaIcono, gridBagConstraints);
-
-        etiquetaUltimoRegistro.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        etiquetaUltimoRegistro.setText("<html><leading>Último registro:");
-        etiquetaUltimoRegistro.setMinimumSize(new java.awt.Dimension(0, 0));
-        etiquetaUltimoRegistro.setPreferredSize(new java.awt.Dimension(0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 40, 5, 10);
-        kGradientPanel1.add(etiquetaUltimoRegistro, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
+        kGradientPanel1.add(etiquetaConfirmacion, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -104,12 +103,12 @@ public class AltaComunidad extends javax.swing.JPanel {
         jLabel2.setMinimumSize(new java.awt.Dimension(150, 30));
         jLabel2.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
         kGradientPanel1.add(jLabel2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -122,26 +121,26 @@ public class AltaComunidad extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 20, 10);
         add(kGradientPanel1, gridBagConstraints);
 
-        panelDinamico.setPreferredSize(new java.awt.Dimension(0, 0));
+        panelDinamico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panelDinamico.setLayout(new java.awt.CardLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 20, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 20, 10);
         add(panelDinamico, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> comboTipo;
-    private javax.swing.JLabel etiquetaIcono;
-    private javax.swing.JLabel etiquetaUltimoRegistro;
+    public javax.swing.JLabel etiquetaConfirmacion;
+    public javax.swing.JLabel etiquetaIcono;
     private javax.swing.JLabel jLabel2;
     private keeptoo.KGradientPanel kGradientPanel1;
-    public javax.swing.JPanel panelDinamico;
+    public keeptoo.KGradientPanel panelDinamico;
     // End of variables declaration//GEN-END:variables
 }

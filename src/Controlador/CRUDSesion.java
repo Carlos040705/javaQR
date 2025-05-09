@@ -1,15 +1,14 @@
 package Controlador;
 
+import Modelo.CRUD;
+import Modelo.ConnectDataBase;
+import Modelo.Sesion;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.sql.SQLException;
-
-import Modelo.CRUD;
-import Modelo.ConnectDataBase;
-import Modelo.Sesion;
 
 public class CRUDSesion implements CRUD {
 
@@ -69,6 +68,95 @@ public class CRUDSesion implements CRUD {
                 }
                 if (st != null && !st.isClosed()) {
                     st.close(); // Cierra el Statement
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDSesion.class.getName()).log(Level.SEVERE, "Error al cerrar recursos", ex);
+            }
+        }
+        return listaSesiones;
+    }
+
+    public ArrayList<Sesion> readByDate(String fecha) {
+        ArrayList<Sesion> listaSesiones = new ArrayList<>();
+        Statement st = null;
+        ResultSet resultado = null;
+        try {
+            st = objConexion.getConnection().createStatement();
+            resultado = st.executeQuery("SELECT * FROM Registro WHERE Fecha = '" + fecha + "'");
+            while (resultado.next()) {
+                Sesion sesion = new Sesion();
+                sesion.setIdRegistro(resultado.getInt("ID_registro"));
+                sesion.setFecha(resultado.getDate("Fecha").toString());
+                sesion.setHoraEntrada(resultado.getTime("Hora_entrada").toString());
+                sesion.setHoraSalida(resultado.getTime("Hora_salida") != null ? resultado.getTime("Hora_salida").toString() : null);
+                sesion.setIdUsuario(resultado.getInt("ID_usuario"));
+                listaSesiones.add(sesion);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDSesion.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (resultado != null && !resultado.isClosed()) {
+                    resultado.close();
+                }
+                if (st != null && !st.isClosed()) {
+                    st.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDSesion.class.getName()).log(Level.SEVERE, "Error al cerrar recursos", ex);
+            }
+        }
+        return listaSesiones;
+    }
+
+    public ArrayList<Sesion> buscarSesionPorCriterios(String textoClave, String textoCriterio, String fecha) {
+        ArrayList<Sesion> listaSesiones = new ArrayList<>();
+        Statement st = null;
+        ResultSet resultado = null;
+        try {
+            String query = "SELECT r.ID_registro, r.Fecha, r.Hora_entrada, r.Hora_salida, r.ID_usuario, " +
+                           "u.Nombre, u.Ap_paterno, u.Ap_materno, " +
+                           "a.Matricula, p.Num_plaza " +
+                           "FROM Registro r " +
+                           "LEFT JOIN Usuario u ON r.ID_usuario = u.ID " +
+                           "LEFT JOIN Alumno a ON u.ID = a.ID " +
+                           "LEFT JOIN Personal p ON u.ID = p.ID " +
+                           "WHERE 1=1";
+
+            if (fecha != null) {
+                query += " AND r.Fecha = '" + fecha + "'";
+            }
+            if (!textoClave.isEmpty()) {
+                query += " AND (CAST(r.ID_usuario AS TEXT) LIKE '%" + textoClave + "%' " +
+                         "OR a.Matricula LIKE '%" + textoClave + "%' " +
+                         "OR p.Num_plaza LIKE '%" + textoClave + "%')";
+            }
+            if (!textoCriterio.isEmpty()) {
+                query += " AND (u.Nombre LIKE '%" + textoCriterio + "%' " +
+                         "OR u.Ap_paterno LIKE '%" + textoCriterio + "%' " +
+                         "OR u.Ap_materno LIKE '%" + textoCriterio + "%')";
+            }
+
+            st = objConexion.getConnection().createStatement();
+            resultado = st.executeQuery(query);
+            while (resultado.next()) {
+                Sesion sesion = new Sesion();
+                sesion.setIdRegistro(resultado.getInt("ID_registro"));
+                sesion.setFecha(resultado.getDate("Fecha").toString());
+                sesion.setHoraEntrada(resultado.getTime("Hora_entrada").toString());
+                sesion.setHoraSalida(resultado.getTime("Hora_salida") != null ? resultado.getTime("Hora_salida").toString() : null);
+                sesion.setIdUsuario(resultado.getInt("ID_usuario"));
+                listaSesiones.add(sesion);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDSesion.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (resultado != null && !resultado.isClosed()) {
+                    resultado.close();
+                }
+                if (st != null && !st.isClosed()) {
+                    st.close();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDSesion.class.getName()).log(Level.SEVERE, "Error al cerrar recursos", ex);

@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import Controlador.ControladorAltaVisitante;
+import Controlador.ControladorDiseñoBoton;
+import Controlador.ObtenerComponentes;
+
 /**
  *
  * @author varga
@@ -13,8 +17,15 @@ public class AltaVisitante extends javax.swing.JPanel {
     /**
      * Creates new form AltaVisitante
      */
+    ControladorAltaVisitante controlador;
+    ControladorDiseñoBoton d;
+    ObtenerComponentes c;
+
     public AltaVisitante() {
         initComponents();
+        controlador = new ControladorAltaVisitante(this);
+        c = new ObtenerComponentes();
+        d = new ControladorDiseñoBoton(c.obtenerBotones(this));
     }
 
     /**
@@ -35,10 +46,10 @@ public class AltaVisitante extends javax.swing.JPanel {
         cajaApMaterno = new javax.swing.JTextField();
         cajaApPaterno = new javax.swing.JTextField();
         cajaNombre = new javax.swing.JTextField();
-        guardarAlumno = new javax.swing.JButton();
+        guardarVisitante = new javax.swing.JButton();
         etiquetaValidacion = new javax.swing.JLabel();
         etiquetaSexo2 = new javax.swing.JLabel();
-        comboSexo2 = new javax.swing.JComboBox<>();
+        comboSexo = new javax.swing.JComboBox<>();
         etiquetaMatricula = new javax.swing.JLabel();
         comboInstitucion = new javax.swing.JComboBox<>();
 
@@ -57,7 +68,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 50, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 50, 20, 6);
         add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
@@ -105,7 +116,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
         add(jLabel5, gridBagConstraints);
 
-        comboAño.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboAño.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboAño.setMinimumSize(new java.awt.Dimension(250, 30));
         comboAño.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -118,6 +129,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
         add(comboAño, gridBagConstraints);
 
+        cajaApMaterno.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaApMaterno.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaApMaterno.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -129,6 +141,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
         add(cajaApMaterno, gridBagConstraints);
 
+        cajaApPaterno.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaApPaterno.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaApPaterno.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -140,6 +153,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
         add(cajaApPaterno, gridBagConstraints);
 
+        cajaNombre.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaNombre.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaNombre.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -148,25 +162,26 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
         add(cajaNombre, gridBagConstraints);
 
-        guardarAlumno.setBackground(new java.awt.Color(152, 219, 175));
-        guardarAlumno.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
-        guardarAlumno.setText("  Guardar ");
-        guardarAlumno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
-        guardarAlumno.setBorderPainted(false);
-        guardarAlumno.setContentAreaFilled(false);
-        guardarAlumno.setHideActionText(true);
-        guardarAlumno.setMaximumSize(new java.awt.Dimension(160, 50));
-        guardarAlumno.setMinimumSize(new java.awt.Dimension(160, 50));
-        guardarAlumno.setName("alumno"); // NOI18N
-        guardarAlumno.setOpaque(true);
-        guardarAlumno.setPreferredSize(new java.awt.Dimension(160, 50));
+        guardarVisitante.setBackground(new java.awt.Color(84, 125, 200));
+        guardarVisitante.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        guardarVisitante.setForeground(new java.awt.Color(255, 255, 255));
+        guardarVisitante.setText("  Guardar ");
+        guardarVisitante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
+        guardarVisitante.setBorderPainted(false);
+        guardarVisitante.setContentAreaFilled(false);
+        guardarVisitante.setHideActionText(true);
+        guardarVisitante.setMaximumSize(new java.awt.Dimension(160, 50));
+        guardarVisitante.setMinimumSize(new java.awt.Dimension(160, 50));
+        guardarVisitante.setName("alumno"); // NOI18N
+        guardarVisitante.setOpaque(true);
+        guardarVisitante.setPreferredSize(new java.awt.Dimension(160, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
-        add(guardarAlumno, gridBagConstraints);
+        add(guardarVisitante, gridBagConstraints);
 
         etiquetaValidacion.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
         etiquetaValidacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -179,7 +194,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
         add(etiquetaValidacion, gridBagConstraints);
 
         etiquetaSexo2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
@@ -195,22 +210,22 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 50, 100, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 50, 6);
         add(etiquetaSexo2, gridBagConstraints);
 
-        comboSexo2.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
-        comboSexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
-        comboSexo2.setMinimumSize(new java.awt.Dimension(250, 30));
-        comboSexo2.setName("licenciatura"); // NOI18N
-        comboSexo2.setPreferredSize(new java.awt.Dimension(250, 30));
+        comboSexo.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
+        comboSexo.setMinimumSize(new java.awt.Dimension(250, 30));
+        comboSexo.setName("licenciatura"); // NOI18N
+        comboSexo.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 100, 6);
-        add(comboSexo2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 50, 6);
+        add(comboSexo, gridBagConstraints);
 
         etiquetaMatricula.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaMatricula.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -225,10 +240,10 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
         add(etiquetaMatricula, gridBagConstraints);
 
-        comboInstitucion.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        comboInstitucion.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboInstitucion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboInstitucion.setMinimumSize(new java.awt.Dimension(250, 30));
         comboInstitucion.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -236,7 +251,7 @@ public class AltaVisitante extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
         add(comboInstitucion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -247,11 +262,11 @@ public class AltaVisitante extends javax.swing.JPanel {
     public javax.swing.JTextField cajaNombre;
     public javax.swing.JComboBox<String> comboAño;
     public javax.swing.JComboBox<String> comboInstitucion;
-    public javax.swing.JComboBox<Object> comboSexo2;
+    public javax.swing.JComboBox<Object> comboSexo;
     public javax.swing.JLabel etiquetaMatricula;
     public javax.swing.JLabel etiquetaSexo2;
     public javax.swing.JLabel etiquetaValidacion;
-    public javax.swing.JButton guardarAlumno;
+    public javax.swing.JButton guardarVisitante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

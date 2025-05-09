@@ -1,26 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vista;
 
-import Controlador.ControladorScanner;
-import Controlador.controladorConsultaUsuario;
+import Controlador.ControladorConsultaUsuario;
+import Controlador.ControladorDiseñoBoton;
+import Controlador.ObtenerComponentes;
+import Modelo.Persona;
+import java.awt.Color;
 
-/**
- *
- * @author varga
- */
+import java.awt.Font;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 public class ConsultaUsuario extends javax.swing.JPanel {
 
     /**
      * Creates new form consultaUsuarios
      */
-    controladorConsultaUsuario controlador;
+    ControladorConsultaUsuario controlador;
+    ControladorDiseñoBoton d;
+    ObtenerComponentes c;
 
-    public ConsultaUsuario(ControladorScanner controladorScanner) {
+    public ConsultaUsuario() {
         initComponents();
-        controlador = new controladorConsultaUsuario(this, controladorScanner);
+        controlador = new ControladorConsultaUsuario(this);
+        c = new ObtenerComponentes();
+        d = new ControladorDiseñoBoton(c.obtenerBotones(this));
     }
 
     /**
@@ -33,91 +37,171 @@ public class ConsultaUsuario extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         etiquetaClave = new javax.swing.JLabel();
-        comboFiltrarPor = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         cajaBuscarClave = new javax.swing.JTextField();
         cajaBuscarPor = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaPersonas = new javax.swing.JTable();
+        comboFiltrarPor = new javax.swing.JComboBox<>();
         panelOpciones = new javax.swing.JPanel();
         botonEditar = new javax.swing.JButton();
         botonEliminar = new javax.swing.JButton();
         botonDetalle = new javax.swing.JButton();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPersonas = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(210, 231, 255));
+        setBackground(new java.awt.Color(84, 125, 174));
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBackground(new java.awt.Color(210, 231, 255));
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setMinimumSize(new java.awt.Dimension(100, 200));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 200));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        kGradientPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel1.setkEndColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel1.setMinimumSize(new java.awt.Dimension(120, 0));
+        kGradientPanel1.setPreferredSize(new java.awt.Dimension(150, 0));
 
         etiquetaClave.setBackground(new java.awt.Color(32, 32, 32));
         etiquetaClave.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 16)); // NOI18N
+        etiquetaClave.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         etiquetaClave.setText("      Buscar ID:");
         etiquetaClave.setPreferredSize(new java.awt.Dimension(130, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        jPanel1.add(etiquetaClave, gridBagConstraints);
-
-        comboFiltrarPor.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 16)); // NOI18N
-        comboFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por...", "Alumno", "Docente", "Visitante" }));
-        comboFiltrarPor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        comboFiltrarPor.setPreferredSize(new java.awt.Dimension(150, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
-        jPanel1.add(comboFiltrarPor, gridBagConstraints);
-
-        cajaBuscarClave.setBorder(null);
-        cajaBuscarClave.setMinimumSize(new java.awt.Dimension(160, 30));
-        cajaBuscarClave.setPreferredSize(new java.awt.Dimension(160, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        jPanel1.add(cajaBuscarClave, gridBagConstraints);
-
-        cajaBuscarPor.setBorder(null);
-        cajaBuscarPor.setMinimumSize(new java.awt.Dimension(160, 30));
-        cajaBuscarPor.setPreferredSize(new java.awt.Dimension(160, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(cajaBuscarPor, gridBagConstraints);
 
         jLabel2.setBackground(new java.awt.Color(32, 32, 32));
         jLabel2.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("      Buscar por:");
         jLabel2.setPreferredSize(new java.awt.Dimension(130, 30));
+
+        cajaBuscarClave.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        cajaBuscarClave.setBorder(null);
+        cajaBuscarClave.setMinimumSize(new java.awt.Dimension(160, 30));
+        cajaBuscarClave.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        cajaBuscarPor.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        cajaBuscarPor.setBorder(null);
+        cajaBuscarPor.setMinimumSize(new java.awt.Dimension(160, 30));
+        cajaBuscarPor.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        comboFiltrarPor.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        comboFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por...", "Alumno", "Docente", "Visitante" }));
+        comboFiltrarPor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        comboFiltrarPor.setMinimumSize(new java.awt.Dimension(160, 30));
+        comboFiltrarPor.setPreferredSize(new java.awt.Dimension(160, 30));
+
+        panelOpciones.setBackground(new java.awt.Color(196, 229, 174));
+        panelOpciones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Leelawadee UI Semilight", 0, 18), new java.awt.Color(240, 240, 240))), "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Leelawadee UI Semilight", 0, 18))); // NOI18N
+        panelOpciones.setForeground(new java.awt.Color(240, 240, 240));
+        panelOpciones.setMinimumSize(new java.awt.Dimension(160, 200));
+        panelOpciones.setOpaque(false);
+        panelOpciones.setPreferredSize(new java.awt.Dimension(160, 200));
+        panelOpciones.setLayout(new java.awt.GridBagLayout());
+
+        botonEditar.setBackground(new java.awt.Color(84, 125, 174));
+        botonEditar.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        botonEditar.setForeground(new java.awt.Color(255, 255, 255));
+        botonEditar.setText("Editar");
+        botonEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
+        botonEditar.setBorderPainted(false);
+        botonEditar.setContentAreaFilled(false);
+        botonEditar.setMinimumSize(new java.awt.Dimension(156, 40));
+        botonEditar.setOpaque(true);
+        botonEditar.setPreferredSize(new java.awt.Dimension(156, 40));
+        botonEditar.setSelected(true);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        panelOpciones.add(botonEditar, gridBagConstraints);
+
+        botonEliminar.setBackground(new java.awt.Color(84, 125, 174));
+        botonEliminar.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        botonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        botonEliminar.setText("Eliminar  ");
+        botonEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
+        botonEliminar.setBorderPainted(false);
+        botonEliminar.setContentAreaFilled(false);
+        botonEliminar.setMinimumSize(new java.awt.Dimension(156, 40));
+        botonEliminar.setOpaque(true);
+        botonEliminar.setPreferredSize(new java.awt.Dimension(156, 40));
+        botonEliminar.setSelected(true);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        panelOpciones.add(botonEliminar, gridBagConstraints);
+
+        botonDetalle.setBackground(new java.awt.Color(84, 125, 174));
+        botonDetalle.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        botonDetalle.setForeground(new java.awt.Color(255, 255, 255));
+        botonDetalle.setText("Detalle");
+        botonDetalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
+        botonDetalle.setBorderPainted(false);
+        botonDetalle.setContentAreaFilled(false);
+        botonDetalle.setMinimumSize(new java.awt.Dimension(156, 40));
+        botonDetalle.setOpaque(true);
+        botonDetalle.setPreferredSize(new java.awt.Dimension(156, 40));
+        botonDetalle.setSelected(true);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        panelOpciones.add(botonDetalle, gridBagConstraints);
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaClave, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cajaBuscarPor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cajaBuscarClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(etiquetaClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cajaBuscarClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cajaBuscarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(comboFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        jPanel1.add(jLabel2, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(kGradientPanel1, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 880;
-        gridBagConstraints.ipady = 59;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(133, 10, 0, 10);
-        add(jPanel1, gridBagConstraints);
+        kGradientPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel2.setkEndColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel2.setkStartColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setBackground(new java.awt.Color(210, 231, 255));
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
+        jScrollPane1.setBackground(new java.awt.Color(84, 125, 174));
         jScrollPane1.setMinimumSize(new java.awt.Dimension(600, 350));
+        jScrollPane1.setOpaque(false);
         jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 350));
 
+        tablaPersonas.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         tablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -134,91 +218,55 @@ public class ConsultaUsuario extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tablaPersonas.setGridColor(new java.awt.Color(0, 0, 0));
         tablaPersonas.setRowHeight(50);
         tablaPersonas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tablaPersonas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tablaPersonas.setShowGrid(false);
+        tablaPersonas.setShowHorizontalLines(true);
+        tablaPersonas.setShowVerticalLines(true);
+        JTableHeader header = tablaPersonas.getTableHeader();
+        header.setFont(new Font("Microsoft JhengHei", Font.BOLD, 18)); 
+        header.setBackground(new Color(84,125,174));             
+        header.setForeground(Color.BLACK);
+        header.setOpaque(true);
         jScrollPane1.setViewportView(tablaPersonas);
+        if (tablaPersonas.getColumnModel().getColumnCount() > 0) {
+            tablaPersonas.getColumnModel().getColumn(0).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(1).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(2).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(3).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(4).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(5).setResizable(false);
+            tablaPersonas.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(jScrollPane1, gridBagConstraints);
-
-        panelOpciones.setBackground(new java.awt.Color(196, 229, 174));
-        panelOpciones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Leelawadee UI Semilight", 0, 18), new java.awt.Color(240, 240, 240))), "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Leelawadee UI Semilight", 0, 18))); // NOI18N
-        panelOpciones.setForeground(new java.awt.Color(240, 240, 240));
-        panelOpciones.setMinimumSize(new java.awt.Dimension(160, 200));
-        panelOpciones.setPreferredSize(new java.awt.Dimension(160, 200));
-        panelOpciones.setLayout(new java.awt.GridBagLayout());
-
-        botonEditar.setBackground(new java.awt.Color(152, 219, 175));
-        botonEditar.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
-        botonEditar.setText("Editar");
-        botonEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
-        botonEditar.setBorderPainted(false);
-        botonEditar.setContentAreaFilled(false);
-        botonEditar.setMinimumSize(new java.awt.Dimension(156, 40));
-        botonEditar.setOpaque(true);
-        botonEditar.setPreferredSize(new java.awt.Dimension(156, 40));
-        botonEditar.setSelected(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        panelOpciones.add(botonEditar, gridBagConstraints);
-
-        botonEliminar.setBackground(new java.awt.Color(152, 219, 175));
-        botonEliminar.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
-        botonEliminar.setText("Eliminar  ");
-        botonEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
-        botonEliminar.setBorderPainted(false);
-        botonEliminar.setContentAreaFilled(false);
-        botonEliminar.setMinimumSize(new java.awt.Dimension(156, 40));
-        botonEliminar.setOpaque(true);
-        botonEliminar.setPreferredSize(new java.awt.Dimension(156, 40));
-        botonEliminar.setSelected(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        panelOpciones.add(botonEliminar, gridBagConstraints);
-
-        botonDetalle.setBackground(new java.awt.Color(152, 219, 175));
-        botonDetalle.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
-        botonDetalle.setText("Detalle");
-        botonDetalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
-        botonDetalle.setBorderPainted(false);
-        botonDetalle.setContentAreaFilled(false);
-        botonDetalle.setMinimumSize(new java.awt.Dimension(156, 40));
-        botonDetalle.setOpaque(true);
-        botonDetalle.setPreferredSize(new java.awt.Dimension(156, 40));
-        botonDetalle.setSelected(true);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        panelOpciones.add(botonDetalle, gridBagConstraints);
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(30, 30, 30, 30);
+        kGradientPanel2.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(panelOpciones, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 134;
-        gridBagConstraints.ipady = 59;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 10, 133, 10);
-        add(jPanel2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(kGradientPanel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setPantallaPrincipal(PantallaPrincipal pantallaPrincipal) {
+        controlador.setPantallaPrincipal(pantallaPrincipal);
+    }
+
+    public void llenarTabla(ArrayList<Persona> personas, DefaultTableModel modelo) {
+        controlador.llenarTabla(personas, modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonDetalle;
@@ -229,9 +277,9 @@ public class ConsultaUsuario extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> comboFiltrarPor;
     public javax.swing.JLabel etiquetaClave;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JPanel panelOpciones;
     public javax.swing.JTable tablaPersonas;
     // End of variables declaration//GEN-END:variables

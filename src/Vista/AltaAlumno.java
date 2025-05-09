@@ -5,7 +5,9 @@
 package Vista;
 
 import Controlador.ControladorAltaAlumno;
-import Controlador.ControladorScanner;
+import Controlador.ControladorDiseñoBoton;
+import Controlador.ObtenerComponentes;
+import javax.swing.JLabel;
 
 /**
  *
@@ -17,10 +19,13 @@ public class AltaAlumno extends javax.swing.JPanel {
      * Creates new form AltaAlumno
      */
     ControladorAltaAlumno controlador;
-
-    public AltaAlumno(ControladorScanner controladorScanner) {
+    ControladorDiseñoBoton d;
+    ObtenerComponentes c;
+    public AltaAlumno() {
         initComponents();
-        controlador = new ControladorAltaAlumno(this,controladorScanner);
+        controlador = new ControladorAltaAlumno(this);
+        c = new ObtenerComponentes();
+        d = new ControladorDiseñoBoton(c.obtenerBotones(this));
     }
 
     /**
@@ -33,6 +38,8 @@ public class AltaAlumno extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,6 +66,16 @@ public class AltaAlumno extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(0, 0));
         setLayout(new java.awt.GridBagLayout());
 
+        kGradientPanel1.setkEndColor(new java.awt.Color(68, 184, 194));
+        kGradientPanel1.setkStartColor(new java.awt.Color(66, 132, 188));
+        kGradientPanel1.setLayout(new java.awt.GridBagLayout());
+
+        kGradientPanel2.setkEndColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel2.setkStartColor(new java.awt.Color(210, 231, 255));
+        kGradientPanel2.setMinimumSize(new java.awt.Dimension(250, 30));
+        kGradientPanel2.setPreferredSize(new java.awt.Dimension(250, 30));
+        kGradientPanel2.setLayout(new java.awt.GridBagLayout());
+
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Nombre: ");
@@ -69,8 +86,8 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 50, 20, 6);
-        add(jLabel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(70, 50, 20, 6);
+        kGradientPanel2.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -85,7 +102,7 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
-        add(jLabel2, gridBagConstraints);
+        kGradientPanel2.add(jLabel2, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -100,7 +117,7 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
-        add(jLabel4, gridBagConstraints);
+        kGradientPanel2.add(jLabel4, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -115,9 +132,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
-        add(jLabel5, gridBagConstraints);
+        kGradientPanel2.add(jLabel5, gridBagConstraints);
 
-        comboSexo.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboSexo.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboSexo.setMinimumSize(new java.awt.Dimension(250, 30));
         comboSexo.setName("licenciatura"); // NOI18N
@@ -128,10 +145,10 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 100, 6);
-        add(comboSexo, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 50, 6);
+        kGradientPanel2.add(comboSexo, gridBagConstraints);
 
-        comboAño.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboAño.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboAño.setMinimumSize(new java.awt.Dimension(250, 30));
         comboAño.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -142,8 +159,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(comboAño, gridBagConstraints);
+        kGradientPanel2.add(comboAño, gridBagConstraints);
 
+        cajaApMaterno.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaApMaterno.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaApMaterno.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -153,8 +171,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(cajaApMaterno, gridBagConstraints);
+        kGradientPanel2.add(cajaApMaterno, gridBagConstraints);
 
+        cajaApPaterno.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaApPaterno.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaApPaterno.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -164,8 +183,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(cajaApPaterno, gridBagConstraints);
+        kGradientPanel2.add(cajaApPaterno, gridBagConstraints);
 
+        cajaNombre.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaNombre.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaNombre.setPreferredSize(new java.awt.Dimension(250, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -174,74 +194,74 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
-        add(cajaNombre, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
+        kGradientPanel2.add(cajaNombre, gridBagConstraints);
 
         etiquetaMatricula.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaMatricula.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaMatricula.setText("Matrícula:");
-        etiquetaMatricula.setMaximumSize(new java.awt.Dimension(100, 30));
-        etiquetaMatricula.setMinimumSize(new java.awt.Dimension(100, 30));
+        etiquetaMatricula.setMaximumSize(new java.awt.Dimension(150, 30));
+        etiquetaMatricula.setMinimumSize(new java.awt.Dimension(150, 30));
         etiquetaMatricula.setName("alumno"); // NOI18N
-        etiquetaMatricula.setPreferredSize(new java.awt.Dimension(100, 30));
+        etiquetaMatricula.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
-        add(etiquetaMatricula, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
+        kGradientPanel2.add(etiquetaMatricula, gridBagConstraints);
 
         etiquetaFacultad1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaFacultad1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaFacultad1.setText("Facultad:");
-        etiquetaFacultad1.setMaximumSize(new java.awt.Dimension(100, 30));
-        etiquetaFacultad1.setMinimumSize(new java.awt.Dimension(100, 30));
+        etiquetaFacultad1.setMaximumSize(new java.awt.Dimension(150, 30));
+        etiquetaFacultad1.setMinimumSize(new java.awt.Dimension(150, 30));
         etiquetaFacultad1.setName("alumno"); // NOI18N
-        etiquetaFacultad1.setPreferredSize(new java.awt.Dimension(100, 30));
+        etiquetaFacultad1.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(etiquetaFacultad1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        kGradientPanel2.add(etiquetaFacultad1, gridBagConstraints);
 
         etiquetaLicenciatura1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaLicenciatura1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaLicenciatura1.setText("Licenciatura:");
-        etiquetaLicenciatura1.setMaximumSize(new java.awt.Dimension(100, 30));
-        etiquetaLicenciatura1.setMinimumSize(new java.awt.Dimension(100, 30));
+        etiquetaLicenciatura1.setMaximumSize(new java.awt.Dimension(150, 30));
+        etiquetaLicenciatura1.setMinimumSize(new java.awt.Dimension(150, 30));
         etiquetaLicenciatura1.setName("alumno"); // NOI18N
-        etiquetaLicenciatura1.setPreferredSize(new java.awt.Dimension(100, 30));
+        etiquetaLicenciatura1.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(etiquetaLicenciatura1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        kGradientPanel2.add(etiquetaLicenciatura1, gridBagConstraints);
 
         etiquetaLicenciatura2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaLicenciatura2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         etiquetaLicenciatura2.setText("Semestre:");
-        etiquetaLicenciatura2.setMaximumSize(new java.awt.Dimension(100, 30));
-        etiquetaLicenciatura2.setMinimumSize(new java.awt.Dimension(100, 30));
+        etiquetaLicenciatura2.setMaximumSize(new java.awt.Dimension(150, 30));
+        etiquetaLicenciatura2.setMinimumSize(new java.awt.Dimension(150, 30));
         etiquetaLicenciatura2.setName("alumno"); // NOI18N
-        etiquetaLicenciatura2.setPreferredSize(new java.awt.Dimension(100, 30));
+        etiquetaLicenciatura2.setPreferredSize(new java.awt.Dimension(150, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(etiquetaLicenciatura2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 20, 6);
+        kGradientPanel2.add(etiquetaLicenciatura2, gridBagConstraints);
 
-        comboSemestre.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboSemestre.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboSemestre.setMinimumSize(new java.awt.Dimension(250, 30));
         comboSemestre.setName("licenciatura"); // NOI18N
@@ -253,9 +273,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(comboSemestre, gridBagConstraints);
+        kGradientPanel2.add(comboSemestre, gridBagConstraints);
 
-        comboLicenciatura.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboLicenciatura.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboLicenciatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboLicenciatura.setMinimumSize(new java.awt.Dimension(250, 30));
         comboLicenciatura.setName("licenciatura"); // NOI18N
@@ -267,9 +287,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(comboLicenciatura, gridBagConstraints);
+        kGradientPanel2.add(comboLicenciatura, gridBagConstraints);
 
-        comboFacultad1.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        comboFacultad1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         comboFacultad1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboFacultad1.setMinimumSize(new java.awt.Dimension(250, 30));
         comboFacultad1.setName("alumno"); // NOI18N
@@ -281,8 +301,9 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(comboFacultad1, gridBagConstraints);
+        kGradientPanel2.add(comboFacultad1, gridBagConstraints);
 
+        cajaMatricula.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
         cajaMatricula.setMinimumSize(new java.awt.Dimension(250, 30));
         cajaMatricula.setName("alumno"); // NOI18N
         cajaMatricula.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -295,11 +316,12 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(100, 5, 20, 6);
-        add(cajaMatricula, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
+        kGradientPanel2.add(cajaMatricula, gridBagConstraints);
 
-        guardarAlumno.setBackground(new java.awt.Color(152, 219, 175));
+        guardarAlumno.setBackground(new java.awt.Color(84, 125, 200));
         guardarAlumno.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 18)); // NOI18N
+        guardarAlumno.setForeground(new java.awt.Color(255, 255, 255));
         guardarAlumno.setText("  Guardar ");
         guardarAlumno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(252, 154, 3)));
         guardarAlumno.setBorderPainted(false);
@@ -313,7 +335,7 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
-        add(guardarAlumno, gridBagConstraints);
+        kGradientPanel2.add(guardarAlumno, gridBagConstraints);
 
         etiquetaValidacion.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
         etiquetaValidacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -324,8 +346,8 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 6);
-        add(etiquetaValidacion, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(70, 5, 20, 6);
+        kGradientPanel2.add(etiquetaValidacion, gridBagConstraints);
 
         etiquetaSexo1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         etiquetaSexo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -340,14 +362,28 @@ public class AltaAlumno extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 50, 100, 6);
-        add(etiquetaSexo1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 50, 50, 6);
+        kGradientPanel2.add(etiquetaSexo1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        kGradientPanel1.add(kGradientPanel2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(kGradientPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cajaMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaMatriculaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cajaMatriculaActionPerformed
-
+public void setConfirmacion(JLabel etiquetaConfirmacion) {
+        controlador.setConfirmacion(etiquetaConfirmacion);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField cajaApMaterno;
@@ -370,5 +406,7 @@ public class AltaAlumno extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables
 }
